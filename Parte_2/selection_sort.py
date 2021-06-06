@@ -1,12 +1,17 @@
-def ordena(lista):
+def selection_sort(lista):
+    
+    ate_onde_ir = len(lista) - 1
 
-    for i in range(len(lista) - 1):
-        posicao_do_menor = i # assumo inicialmente que o menor número está na primeira posição
+    for i in range(ate_onde_ir, 0, -1):
 
-        for j in range( (i + 1), len(lista) ):
-            if lista[j] < lista[posicao_do_menor]:
-                posicao_do_menor = j
+        posicao_do_maior = 0
 
-        lista[i], lista[posicao_do_menor] = lista[posicao_do_menor], lista[i]
+        for j in range(i):
+
+            if lista[j+1] > lista[posicao_do_maior]:
+                posicao_do_maior = j+1
+
+        lista[i], lista[posicao_do_maior] = lista[posicao_do_maior], lista[i]
 
     return lista
+    
